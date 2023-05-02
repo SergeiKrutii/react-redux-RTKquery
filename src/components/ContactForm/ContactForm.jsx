@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { nanoid } from "nanoid";
 import styled from "styled-components";
-import { ToastContainer } from "react-toastify";
-import { useAddContactMutation } from "../redux/contacts/contacts-createApi";
+import { ToastContainer, toast } from "react-toastify";
+import {
+  useAddContactMutation,
+  useGetContactsQuery,
+} from "../redux/contacts/contacts-createApi";
 import "react-toastify/dist/ReactToastify.css";
 
 const Form = styled.form({
@@ -20,6 +23,7 @@ const ContactForm = () => {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
   const [addContact] = useAddContactMutation();
+  const { data: contacts } = useGetContactsQuery();
 
   const onInputChange = (e) => {
     const { name, value } = e.target;
@@ -49,6 +53,13 @@ const ContactForm = () => {
       name: name,
       number: number,
     };
+
+    const isEqualName = contacts.some((contact) => contact.name.includes(name));
+
+    if (isEqualName) {
+      toast.error("User with this name already exist!!");
+      return;
+    }
 
     addContact(newContact);
     reset();
