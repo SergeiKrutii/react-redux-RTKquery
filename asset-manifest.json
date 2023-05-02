@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-redux-rtkquery/static/css/main.bb3c426e.css",
+    "main.js": "/react-redux-rtkquery/static/js/main.a22611dc.js",
+    "index.html": "/react-redux-rtkquery/index.html",
+    "main.bb3c426e.css.map": "/react-redux-rtkquery/static/css/main.bb3c426e.css.map",
+    "main.a22611dc.js.map": "/react-redux-rtkquery/static/js/main.a22611dc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bb3c426e.css",
+    "static/js/main.a22611dc.js"
+  ]
+}
